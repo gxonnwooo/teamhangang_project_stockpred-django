@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-3">
+    <div class="row my-3">
+        <div class="col-4">
+            <h2>{{ user.username }}'s Profile</h2>
+        </div>
+        <p>
+        <div><a href="{% url 'common:password_change' %}">비밀번호 변경</a></div>
+        <p>
+        <br>
+        <div><strong>Email</strong></div>
+        {{ user.email|default:"&dash;" }}
+        <p>
+        <div><strong>Nickname</strong></div>
+        {{ user.profile.nickname|default:"&dash;" }}
+        <p>
+        <div><strong>증권사</strong></div>
+        {{ user.profile.stock_firm|default:"&dash;" }}
+    </div>
+</div>
+{% endblock %}
